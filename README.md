@@ -1,0 +1,1 @@
+Thanks for visiting my first GOlang project.  This is a quiz game that you can run in your console.  It is the first from the Gophercises.com website.  This is all original code, but I did get the project idea from the website.
