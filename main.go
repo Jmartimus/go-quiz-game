@@ -17,14 +17,17 @@ func main() {
 		fmt.Println("There is an error", err)
 	}
 	reader := csv.NewReader(file)
-	records, _ := reader.ReadAll()
-	for _, record := range records {
-		fmt.Println("Please answer this question", record[0])
+	records, err := reader.ReadAll()
+	if err != nil {
+		fmt.Println("Error reading CSV file.")
+	}
+	for i, record := range records {
+		fmt.Printf("Problem #%d: %s = \n", i+1, record[0])
 		fmt.Scan(&answer)
 		if answer == record[1] {
 			correctAnswers += 1
 		}
 	}
-	results := fmt.Sprintf("You received a %d out of %d!", correctAnswers, len(records))
+	results := fmt.Sprintf("You scored %d out of %d!", correctAnswers, len(records))
 	fmt.Println(results)
 }
